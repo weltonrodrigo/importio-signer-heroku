@@ -28,10 +28,10 @@ On your code:
 
 ```javascript
 
-this.importio.init({¬                                                   
-             "auth": "http://adjective-noum-9999.herokuapp.com/",¬                     
-             "host": "import.io"¬                                                
-});¬
+this.importio.init({
+             "auth": "http://adjective-noum-9999.herokuapp.com/",
+             "host": "import.io"
+});
 ```
 
 ## References
