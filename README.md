@@ -17,15 +17,16 @@ Via GitHub:
 ```bash
 git clone https://github.com/weltonrodrigo/importio-signer-heroku.git
 cd importio-signer-heroku
-```bash
+```
 
 Via npm:
 ```bash
 npm install --save importio-signer-heroku
 cd node_modules/importio-signer-heroku
+```
 
 Send app to Heroku:
-```
+```bash
 heroku login
 heroku create
 git push heroku master
