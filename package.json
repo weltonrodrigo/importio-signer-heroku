@@ -1,0 +1,31 @@
+{
+  "name": "importio-signer-heroku",
+  "version": "0.0.1",
+  "description": "a heroku app to sign client queries to import.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo How I am supposed to test this?"
+  },
+  "author": "Welton Rodrigo Torres Nascimento <rodrigo@familianascimento.org>",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.0.1",
+    "compression": "^1.0.8",
+    "http": "0.0.0",
+    "morgan": "^1.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weltonrodrigo/importio-signer-heroku.git"
+  },
+  "keywords": [
+    "import-io",
+    "importio",
+    "heroku"
+  ],
+  "bugs": {
+    "url": "https://github.com/weltonrodrigo/importio-signer-heroku/issues"
+  },
+  "homepage": "https://github.com/weltonrodrigo/importio-signer-heroku"
+}
