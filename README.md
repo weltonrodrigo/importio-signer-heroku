@@ -11,7 +11,7 @@ That being said, you should:
 
 ## Step-by-step
 
-## Get the code:
+### Get the code:
 
 Via GitHub:
 ```bash
@@ -25,7 +25,7 @@ npm install --save importio-signer-heroku
 cd node_modules/importio-signer-heroku
 ```
 
-Send app to Heroku:
+### Send app to Heroku:
 ```bash
 heroku login
 heroku create
@@ -37,7 +37,7 @@ heroku config:set IMPORTIO_APIKEY=your_long_api_key_string
 heroku ps:scale web=1
 ```
 
-On your code:
+### On your code:
 
 ```javascript
 
