@@ -11,12 +11,24 @@ That being said, you should:
 
 ## Step-by-step
 
+## Get the code:
+
+Via GitHub:
 ```bash
 git clone https://github.com/weltonrodrigo/importio-signer-heroku.git
 cd importio-signer-heroku
+```bash
+
+Via npm:
+```bash
+npm install --save importio-signer-heroku
+cd node_modules/importio-signer-heroku
+
+Send app to Heroku:
+```
 heroku login
 heroku create
-heroku push master
+git push heroku master
 
 heroku config:set IMPORTIO_USERGUID=21fe0000-0000-0000-0000-af4300007640
 heroku config:set IMPORTIO_APIKEY=your_long_api_key_string
