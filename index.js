@@ -11,8 +11,13 @@ var orgGuid  = "00000000-0000-0000-0000-000000000000";
 
 var rawKey   = new Buffer(apiKey, 'base64');
 
+// We need a static expiry for testing.
+var expiry = process.env.IMPORTIO_TESTING && process.env.IMPORTIO_EXPIRYFORTEST? 
+	process.env.IMPORTIO_EXPIRYFORTEST: undefined;
+
+
 // Creates a Hmac SHA1 based on a key.
-function sign (query){
+function sign (query, expiry){
 
 	var hmac = crypto.createHmac('sha1', rawKey);
 
@@ -20,8 +25,9 @@ function sign (query){
 	// console.log(JSON.stringify(query));
 
 	 // 24 hours expiration. set to "null" for no expiry.
-	var expiry = (Date.now() + (60*60*24)) * 1000;
-	var check = query + ':' + userGuid + ':' + expiry;
+	 // If we are on a testing environment, use a fixed expiry date.
+	var myExpiry = expiry? expiry: (Date.now() + (60*60*24)) * 1000;
+	var check = query + ':' + userGuid + ':' + myExpiry;
 
 	// console.log(check);
 	hmac.update(check)
@@ -65,7 +71,7 @@ app.use(function(req, res){
 		res.setHeader("Access-Control-Allow-Origin", origin);
 	}
 
-	res.end(sign(req.rawBody));
+	res.end(sign(req.rawBody, expiry));
 })
 
 var port = Number(process.env.PORT || 5000);

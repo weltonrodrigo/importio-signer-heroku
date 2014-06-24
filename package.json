@@ -4,7 +4,7 @@
   "description": "a heroku app to sign client queries to import.io",
   "main": "index.js",
   "scripts": {
-    "test": "echo How I am supposed to test this?"
+    "test": "mocha"
   },
   "author": "Welton Rodrigo Torres Nascimento <rodrigo@familianascimento.org>",
   "license": "MIT",
@@ -14,7 +14,10 @@
     "http": "0.0.0",
     "morgan": "^1.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^1.20.1",
+    "supertest": "^0.13.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/weltonrodrigo/importio-signer-heroku.git"
