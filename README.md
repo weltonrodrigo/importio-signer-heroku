@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/weltonrodrigo/importio-signer-heroku.svg?branch=master)](https://travis-ci.org/weltonrodrigo/importio-signer-heroku)
+
 importio-signer-heroku
 ======================
 
