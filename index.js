@@ -36,7 +36,7 @@ function sign (query, expiry){
 
 	var signedQuery = {
 		"queryJson": query,
-		"expiresAt": expiry,
+		"expiresAt": myExpiry,
 		"userGuid": userGuid,
 		"orgGuid": orgGuid,
 		"digest": digest
