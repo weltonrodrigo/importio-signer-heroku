@@ -24,14 +24,14 @@ function sign (query, expiry){
 	 // 24 hours expiration. set to "null" for no expiry.
 	 // If we are on a testing environment, use a fixed expiry date.
 	var myExpiry = expiry? expiry: (Date.now() + (60*60*24)) * 1000;
-	var check = JSON.stringify(query) + ':' + userGuid + ':' + myExpiry;
+	var check = query + ':' + userGuid + ':' + myExpiry;
 
     // Should be a number, not a string containing a number-like text.
     // Would be a string if coming from process.env
     myExpiry = Number(myExpiry);
 
 
-	hmac.update(check)
+	hmac.update(check);
 	var digest = hmac.digest('base64');
 
 	var signedQuery = {
@@ -52,12 +52,12 @@ app.use(compression());
 // simple function to get raw body data.
 app.use(function(req, res, next){
    var data = "";
-   req.on('data', function(chunk){ data += chunk})
+   req.on('data', function(chunk){ data += chunk});
    req.on('end', function(){
       req.rawBody = data;
       next();
    })
-})
+});
 
 // Main route
 app.use(function(req, res){
@@ -71,7 +71,7 @@ app.use(function(req, res){
 	}
 
 	res.end(sign(req.rawBody, expiry));
-})
+});
 
 var port = Number(process.env.PORT || 5000);
 

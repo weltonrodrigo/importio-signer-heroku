@@ -14,7 +14,7 @@ dummyResponse = {
     "expiresAt": expiry,
     "userGuid": "00000000-0000-0000-0000-000000000000",
     "orgGuid": "00000000-0000-0000-0000-000000000000",
-    "digest": "OxqWUgwUltFXXc6zmNu9Lc5VwmA="
+    "digest": "fA3uYm3pLjJYdNI+HjMms9MUMn0="
 };
 
 var signer   = require('../index.js');
