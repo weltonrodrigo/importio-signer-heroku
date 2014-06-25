@@ -21,18 +21,18 @@ function sign (query, expiry){
 
 	var hmac = crypto.createHmac('sha1', rawKey);
 
-	// console.log(query);
-	// console.log(JSON.stringify(query));
-
 	 // 24 hours expiration. set to "null" for no expiry.
 	 // If we are on a testing environment, use a fixed expiry date.
 	var myExpiry = expiry? expiry: (Date.now() + (60*60*24)) * 1000;
-	var check = query + ':' + userGuid + ':' + myExpiry;
+	var check = JSON.stringify(query) + ':' + userGuid + ':' + myExpiry;
 
-	// console.log(check);
+    // Should be a number, not a string containing a number-like text.
+    // Would be a string if coming from process.env
+    myExpiry = Number(myExpiry);
+
+
 	hmac.update(check)
-	var digest = hmac.digest('base64');	
-	// console.log(digest);
+	var digest = hmac.digest('base64');
 
 	var signedQuery = {
 		"queryJson": query,
@@ -41,7 +41,7 @@ function sign (query, expiry){
 		"orgGuid": orgGuid,
 		"digest": digest
 	};
-	// console.log(JSON.stringify(signedQuery));
+
 	return JSON.stringify(signedQuery);
 }
 
@@ -62,7 +62,6 @@ app.use(function(req, res, next){
 // Main route
 app.use(function(req, res){
 	var origin = req.headers['origin'];
-	// console.log(JSON.stringify(req.headers));
 
 	res.setHeader('Content-Type', 'application/json');
 
